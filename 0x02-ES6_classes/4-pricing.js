@@ -26,7 +26,7 @@ export default class Pricing {
 
   // Method that returns attributes in the the format <amount> <currency_name>
   displayFullPrice() {
-    return (`${this.amount} ${this.currency.name} (${this.currency.code})`);
+    return (`${this._amount} ${this._currency.name} (${this._currency.code})`);
   }
 
   // static method
