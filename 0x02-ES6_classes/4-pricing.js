@@ -20,7 +20,9 @@ export default class Pricing {
     this._amount = newAmount;
   }
 
+  // If the new currency isn't type of the Currency class raise error
   set currency(newCurrency) {
+    if (!((newCurrency) instanceof Currency)) throw TypeError('currency must have the same instance as of Currency Class');
     this._currency = newCurrency;
   }
 
