@@ -9,7 +9,7 @@ export default class Car {
     return this;
   }
 
-  // Method thar returns the new object of the class
+  // Method thar returns the clone of the class
   // eslint-disable-next-line class-methods-use-this
   cloneCar() {
     return new this.constructor[Symbol.species]();
