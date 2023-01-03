@@ -2,9 +2,7 @@ export const weakMap = new WeakMap();
 
 export function queryAPI(obj) {
   let count = 0;
-  const value = weakMap.get(obj);
-
-  if (value) { count = value; }
+  if (weakMap.get(obj)) { count = weakMap.get(obj); }
 
   weakMap.set(obj, count + 1);
 
