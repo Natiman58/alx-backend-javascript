@@ -48,13 +48,13 @@ studentsList.forEach(function (student) {
     fName.style.padding = "4px";
     location.style.padding = "4px";
 
-    // Then append each text data into the row 
+    // then append each text data into the row 
     row.appendChild(fName);
     row.appendChild(location);
 
-    // finally append the row to the table
+    // then append the row to the table
     tbl.appendChild(row);
 });
 
-// Finally append the created table to the body of the DOM obj
+// Finally append the created table to the parent body
 document.body.appendChild(tbl);
