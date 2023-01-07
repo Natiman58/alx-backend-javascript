@@ -1,4 +1,7 @@
 /// <reference path="./crud.d.ts" />
+// To include .d.ts files(declaration files)
+
+
 import { RowID, RowElement } from './interface';
 import * as CRUD from './crud';
 // create an obj with type RowElement
