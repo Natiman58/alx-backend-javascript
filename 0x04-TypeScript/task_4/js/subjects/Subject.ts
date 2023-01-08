@@ -5,7 +5,7 @@ namespace Subjects {
 
         //setter method for setting the class instance
         // attribute 'this.teacher' to teacher
-        setTeacher(teacher: Subjects.Teacher) {
+        set setTeacher(teacher: Subjects.Teacher) {
             this.teacher = teacher;
         }
     }
