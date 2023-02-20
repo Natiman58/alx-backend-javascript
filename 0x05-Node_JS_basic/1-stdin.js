@@ -1,5 +1,4 @@
 // a simple script that uses process stdin
-process.stdin.setEncoding('utf-8');
 console.log('Welcome to Holberton School, what is your name?');
 
 // if the process is connected to terminal(isTTY)
