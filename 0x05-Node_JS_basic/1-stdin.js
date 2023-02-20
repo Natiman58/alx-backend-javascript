@@ -9,7 +9,7 @@ process.stdin.on('readable', () => {
     process.stdout.write(`Your name is: ${chunk}`);
   }
 });
-// in the end of the read file
+// in the end of the read file final processing before exit
 process.stdin.on('end', () => {
   process.stdout.write('This important software is now closing\n');
 });
