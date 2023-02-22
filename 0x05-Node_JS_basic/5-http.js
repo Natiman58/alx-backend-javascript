@@ -24,49 +24,40 @@ const requestListener = (req, res) => {
 
     // if the path is ('/students') -> call the countStudents function
   } else if (pathname === '/students') {
-    const db = parsedUrl.query;
-
-    // if db is provided, call the countStudents function with the specified db
-    if (db) {
-      countStudents(db, (error, data) => {
-        if (error) {
-          // if there is an error -> send 500 response
-          res.writeHead(500, { 'Content-Type': 'text/plain' });
-          res.end('Internal server error');
-        } else {
-          // if no error -> 200 response
-          res.writeHead(200, { 'Content-Type': 'text/plain' });
-          res.end(`Number of students: ${data.count}. List: ${data.students.join(', ')}`);
+    countStudents(process.argv[2])
+      .then((data) => {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        const lines = data;
+        const fields = {};
+        for (const line of lines) {
+          const values = line.split(',');
+          if (values.length === 4 && values[0] !== 'firstname') {
+            const field = values[3].trim();
+            if (fields[field]) {
+              fields[field].push(values[0]);
+            } else {
+              fields[field] = [values[0]];
+            }
+          }
         }
-      });
-
-      // if db is not provided, call the countStudents function with no arguments
-    } else {
-      countStudents((error, data) => {
-        if (error) {
-          // if there is an error -> send 500 response
-          res.writeHead(500, { 'Content-Type': 'text/plain' });
-          res.end('Internal server error');
-        } else {
-          // if no error -> 200 response
-          res.writeHead(200, { 'Content-Type': 'text/plain' });
-          res.end(`Number of students: ${data.count}. List: ${data.students.join(', ')}`);
+        res.write('This is the list of our students\n');
+        res.write(`Number of students: ${lines.length - 1}\n`);
+        for (const field in fields) {
+          if (Object.prototype.hasOwnProperty.call(fields, field)) {
+            const list = fields[field];
+            res.write(`Number of students in ${field}: ${list.length}. List: ${list.join(', ')}\n`);
+          }
         }
+        res.end();
       });
-    }
-
-    // if the path is not recognized, send 404 response
-  } else {
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.end('Page not found');
   }
 };
 
 // create the server and bind it to the network address
-const server = http.createServer(requestListener);
-server.listen(port, host, () => {
+const app = http.createServer(requestListener);
+app.listen(port, host, () => {
   console.log(`Server is running on http://${host}:${port}`);
 });
 
 // export the server for testing purposes
-module.exports = server;
+module.exports = app;
