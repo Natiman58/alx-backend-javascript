@@ -46,7 +46,7 @@ const requestListener = async (req, res) => {
       for (const field in fields) {
         if (Object.prototype.hasOwnProperty.call(fields, field)) {
           const list = fields[field];
-          res.write(`Number of students in ${field}: ${list.length}. List: ${list.join(', ')}\n`);
+          res.write(`Number of students in ${field}: ${list.length}. List: ${list.join(', ')}`);
         }
       }
       res.end();
