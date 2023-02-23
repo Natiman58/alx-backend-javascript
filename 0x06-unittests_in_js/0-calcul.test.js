@@ -1,7 +1,7 @@
 const assert = require('assert');
 const calculate = require('./0-calcul.js');
 
-describe('calculateNumber', function() {
+describe('calculate', function() {
     it('should return the sum of the two rounded numbers.', function() {
         assert.equal(calculate(1, 3), 4);
         assert.equal(calculate(1, 3.7), 5);
