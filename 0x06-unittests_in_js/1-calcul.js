@@ -15,4 +15,4 @@ function calculateNumber(type, a, b) {
 
 };
 
-module.exports.calculateNumber = calculateNumber;
+module.exports = calculateNumber;
