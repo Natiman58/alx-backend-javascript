@@ -1,5 +1,5 @@
 const assert = require('assert');
-const calculate = require('./0-calcul.js');
+const { calculate } = require('./0-calcul.js');
 
 describe('calculate', function() {
     it('should return the sum of the two rounded numbers.', function() {
