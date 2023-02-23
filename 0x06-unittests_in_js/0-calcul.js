@@ -4,6 +4,3 @@ function calculateNumber(a, b) {
 };
 
 module.exports.calculate = calculateNumber;
-//module.exports = {
-calculateNumber: calculateNumber
-    //};
