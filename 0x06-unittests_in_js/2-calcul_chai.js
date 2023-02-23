@@ -1,4 +1,4 @@
-// A script to calculate the sum of two numbers
+// A script to calculate the reesult according to the type
 function calculateNumber(type, a, b) {
     if (type === "SUM") {
         return Math.round(a) + Math.round(b)
