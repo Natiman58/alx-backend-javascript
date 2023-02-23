@@ -7,5 +7,6 @@ describe('calculate', function() {
         assert.equal(calculateNumber(1, 3.7), 5);
         assert.equal(calculateNumber(1.2, 3.7), 5);
         assert.equal(calculateNumber(1.5, 3.7), 6);
+        assert.equal(calculateNumber(1000e12123456, 3.7), Infinity);
     });
 });
