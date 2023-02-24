@@ -1,3 +1,5 @@
+// testing using chai
+
 const expect = require('chai').expect; // Using Expect style
 const calculateNumber = require('./2-calcul_chai');
 
