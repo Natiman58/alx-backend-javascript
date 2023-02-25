@@ -23,7 +23,7 @@ describe('Index page', () => {
         })
     })
 
-    // Test it the correct content length
+    // Test it returns the correct content length
     it('should return the correct content lenght', (done) => {
         request.get(options, (error, response) => {
             expect(response.headers['content-length']).to.equal('29')
