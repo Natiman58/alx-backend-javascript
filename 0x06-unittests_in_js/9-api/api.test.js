@@ -48,7 +48,14 @@ describe('cart/:id page', () => {
         })
     })
 
-    // Test it returns the status code 404 if id isn't a number
+    // Test if it displayes the correct output
+    it('should display payment method of a cart', (done) => {
+            request.get(options.url + 12, (err, response) => {
+                expect(response.body).to.be.equal('Payment methods for cart 12');
+                done();
+            })
+        })
+        // Test it returns the status code 404 if id isn't a number
     it('should return the 404 status code when id is not a number', (done) => {
         request.get(options.url + 'hello', (err, response) => {
             expect(response.statusCode).to.be.equal(404);
