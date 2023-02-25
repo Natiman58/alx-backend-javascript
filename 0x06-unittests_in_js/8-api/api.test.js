@@ -1,7 +1,5 @@
 const request = require('request');
-const fetch = require('node-fetch');
 const expect = require('chai').expect;
-//const app = require('./api');
 
 describe('Index page', () => {
     const options = {
